@@ -1,5 +1,6 @@
 import React from "react";
 import home1 from "../img/home1.png";
+import Wave from "../components/Wave";
 //styled
 import {
   StyledAbout,
@@ -39,6 +40,7 @@ const AboutSection = () => {
       <StyledImage>
         <motion.img variants={photoAnim} src={home1} alt="guy with a camera" />
       </StyledImage>
+      <Wave />
     </StyledAbout>
   );
 };
