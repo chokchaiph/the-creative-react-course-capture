@@ -16,43 +16,64 @@ import {
   sliderContainer,
 } from "../animation";
 
+//components
+import { useScroll } from "../components/useScroll";
+
 const OurWork = () => {
+  const [element, controls] = useScroll();
+  const [element2, controls2] = useScroll();
   return (
-    <Work variants={pageAnimation} initial="hidden" animate="show" exit="exit">
+    <StyledWork
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      style={{ background: "#fff" }}
+    >
       <motion.div variants={sliderContainer}>
         <Frame1 variants={slider}></Frame1>
         <Frame2 variants={slider}></Frame2>
         <Frame3 variants={slider}></Frame3>
         <Frame4 variants={slider}></Frame4>
       </motion.div>
-      <Movie>
+      <StyledMovie>
         <motion.h2 variants={fade}>The Athlete</motion.h2>
         <motion.div className="line" variants={lineAnim}></motion.div>
         <Link to="/work/the-athlete">
-          <Hide>
+          <StyledHide>
             <motion.img variants={photoAnim} src={athlete} alt="athlete" />
-          </Hide>
+          </StyledHide>
         </Link>
-      </Movie>
-      <Movie>
+      </StyledMovie>
+      <StyledMovie
+        variants={fade}
+        ref={element}
+        animate={controls}
+        initial="hidden"
+      >
         <h2>The Racer</h2>
-        <div className="line"></div>
+        <motion.div className="line" variants={lineAnim}></motion.div>
         <Link to="/work/the-racer">
           <img src={theracer} alt="theracer" />
         </Link>
-      </Movie>
-      <Movie>
+      </StyledMovie>
+      <StyledMovie
+        variants={fade}
+        ref={element2}
+        animate={controls2}
+        initial="hidden"
+      >
         <h2>Good Times</h2>
-        <div className="line"></div>
+        <motion.div className="line" variants={lineAnim}></motion.div>
         <Link to="/work/good-times">
           <img src={goodtimes} alt="goodtimes" />
         </Link>
-      </Movie>
-    </Work>
+      </StyledMovie>
+    </StyledWork>
   );
 };
 
-const Work = styled(motion.div)`
+const StyledWork = styled(motion.div)`
   min-height: 100vh;
   overflow: hidden;
   padding: 5rem 10rem;
@@ -61,7 +82,7 @@ const Work = styled(motion.div)`
     padding: 1rem 0rem;
   }
 `;
-const Movie = styled.div`
+const StyledMovie = styled(motion.div)`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
@@ -75,7 +96,7 @@ const Movie = styled.div`
   }
 `;
 
-const Hide = styled.div`
+const StyledHide = styled.div`
   overflow: hidden;
 `;
 

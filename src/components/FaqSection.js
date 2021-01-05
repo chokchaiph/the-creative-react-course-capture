@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { StyledAbout } from "../styles";
 import { AnimateSharedLayout } from "framer-motion";
-//import Toggle
-import Toggle from "./Toggle";
 
 //components
+import Toggle from "./Toggle";
 import { useScroll } from "./useScroll";
 
 //animation
