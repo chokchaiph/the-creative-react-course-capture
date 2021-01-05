@@ -67,6 +67,9 @@ const FaqSection = () => {
 
 const StyledFaq = styled(StyledAbout)`
   display: block;
+  @media (max-width: 1300px) {
+    justify-content: center;
+  }
   span {
     display: block;
   }
